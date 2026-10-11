@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hasibul Haque Prottoy</title>
+<meta name="description" content="Web design, WordPress, Shopify, branding and SEO for small and mid-sized businesses worldwide.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one left-aligned 1080px column; hero copy beside a product-style "launch report" panel, then quiet hairline sections. */
+:root {
+  --bg: #0a0c10;
+  --surface: #11141a;
+  --line: #1d222b;
+  --fg: #e8eaee;
+  --muted: #8b919d;
+  --accent: #f2b544;
+  --accent-ink: #1a1305;
+  --good: #5fd39a;
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 400 16px/1.6 var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: 24px; }
+.mono { font-family: var(--font-mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+
+/* nav */
+header { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+nav { display: flex; align-items: center; justify-content: space-between; gap: 16px; height: 60px; }
+.logo { display: flex; align-items: center; gap: 10px; font-weight: 600; letter-spacing: -.01em; }
+.mark { width: 22px; height: 22px; border-radius: 6px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font: 600 12px var(--font-mono); }
+.links { display: flex; gap: 28px; font-size: 14px; color: var(--muted); }
+.links a:hover { color: var(--fg); }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 16px; border-radius: 8px; font-size: 14px; font-weight: 500; border: 1px solid var(--line); transition: background .2s, border-color .2s; }
+.btn:hover { border-color: #2c3340; background: var(--surface); }
+.btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn.primary:hover { background: #f6c566; }
+.btn.sm { height: 34px; padding: 0 12px; font-size: 13px; }
+
+/* hero */
+.hero { display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center; padding-block: 96px 88px; }
+.hero > * { min-width: 0; }
+.pill { display: inline-flex; align-items: center; gap: 8px; padding: 4px 10px 4px 8px; border: 1px solid var(--line); border-radius: 99px; font-size: 13px; color: var(--muted); }
+.dot { width: 6px; height: 6px; border-radius: 50%; background: var(--good); box-shadow: 0 0 0 3px color-mix(in srgb, var(--good) 20%, transparent); }
+h1 { font-size: clamp(38px, 5.4vw, 60px); line-height: 1.04; letter-spacing: -.035em; font-weight: 600; margin: 22px 0 20px; text-wrap: balance; }
+h1 em { font-style: normal; color: var(--accent); }
+.lede { font-size: 18px; color: var(--muted); max-width: 46ch; margin: 0 0 32px; }
+.ctas { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* report panel */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+.panel-head { display: flex; justify-content: space-between; align-items: center; padding: 14px 18px; border-bottom: 1px solid var(--line); }
+.panel-head span:first-child { font-family: var(--font-mono); font-size: 12px; color: var(--fg); }
+.vitals { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--line); }
+.vital { padding: 18px; display: grid; gap: 4px; }
+.vital + .vital { border-left: 1px solid var(--line); }
+.vital b { font: 500 24px/1 var(--font-sans); letter-spacing: -.02em; font-variant-numeric: tabular-nums; }
+.vital b small { font-size: 13px; color: var(--muted); font-weight: 400; margin-left: 2px; }
+.bar { height: 3px; background: var(--line); border-radius: 2px; margin-top: 8px; }
+.bar i { display: block; height: 100%; border-radius: 2px; background: var(--good); }
+.checks { list-style: none; margin: 0; padding: 8px 0; }
+.checks li { display: flex; justify-content: space-between; gap: 12px; padding: 9px 18px; font-size: 14px; }
+.checks li span:last-child { font-family: var(--font-mono); font-size: 12px; color: var(--good); white-space: nowrap; }
+.checks li.wip span:last-child { color: var(--accent); }
+.panel-foot { padding: 12px 18px; border-top: 1px solid var(--line); font-size: 12px; color: var(--muted); }
+
+/* stack row */
+.stack { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 36px; padding-block: 28px; border-block: 1px solid var(--line); }
+.stack span:not(.mono) { color: var(--muted); font-weight: 500; font-size: 15px; }
+
+/* sections */
+section { padding-block: 104px 0; }
+.sec-head { display: grid; gap: 12px; margin-bottom: 44px; max-width: 560px; }
+h2 { font-size: clamp(28px, 3.4vw, 38px); line-height: 1.12; letter-spacing: -.03em; font-weight: 600; margin: 0; text-wrap: balance; }
+.sec-head p { margin: 0; color: var(--muted); }
+
+.services { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.svc { padding: 28px; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); display: grid; gap: 10px; align-content: start; transition: background .2s; }
+.svc:hover { background: var(--surface); }
+.svc h3 { margin: 0; font-size: 17px; font-weight: 600; letter-spacing: -.01em; }
+.svc p { margin: 0; color: var(--muted); font-size: 15px; }
+.svc .mono { font-size: 11px; }
+.svc.cta { background: var(--surface); }
+.svc.cta a { color: var(--accent); font-weight: 500; font-size: 15px; }
+
+.steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+.step { display: grid; gap: 10px; align-content: start; padding-top: 18px; border-top: 1px solid var(--line); }
+.step:first-child { border-top-color: var(--accent); }
+.step h3 { margin: 0; font-size: 16px; font-weight: 600; }
+.step p { margin: 0; color: var(--muted); font-size: 15px; }
+
+.final { margin-block: 120px 0; padding: 56px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 28px; }
+.final h2 { max-width: 18ch; }
+.final p { margin: 10px 0 0; color: var(--muted); }
+.email { font-family: var(--font-mono); font-size: 14px; color: var(--fg); user-select: all; }
+
+footer { margin-top: 96px; border-top: 1px solid var(--line); }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; padding-block: 28px; font-size: 13px; color: var(--muted); }
+footer a:hover { color: var(--fg); }
+.foot-links { display: flex; gap: 20px; }
+
+/* load-in, from a visible state */
+@media (prefers-reduced-motion: no-preference) {
+  .hero > * { animation: rise .7s cubic-bezier(.2,.7,.2,1) both; }
+  .hero > :nth-child(2) { animation-delay: .12s; }
+  @keyframes rise { from { transform: translateY(10px); opacity: .4; } to { transform: none; opacity: 1; } }
+}
+
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-block: 64px 64px; gap: 44px; }
+  .services { grid-template-columns: repeat(2, 1fr); }
+  .steps { grid-template-columns: repeat(2, 1fr); }
+  .links { display: none; }
+}
+@media (max-width: 560px) {
+  .wrap { padding-inline: 16px; }
+  .services, .steps { grid-template-columns: 1fr; }
+  .final { padding: 32px 24px; }
+  section { padding-block: 80px 0; }
+  .vital { padding: 14px; }
+  .vital b { font-size: 20px; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="wrap" aria-label="Main">
+    <a class="logo" href="#top"><span class="mark">H</span>Prottoy</a>
+    <div class="links">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <a class="btn sm primary" href="#contact">Book a call</a>
+  </nav>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <span class="pill"><span class="dot"></span>Taking new projects this month</span>
+      <h1>Websites that load fast, rank well and <em>sell</em>.</h1>
+      <p class="lede">I'm Hasibul Haque Prottoy. I design and build WordPress and Shopify sites, brands and SEO foundations for small and mid-sized businesses around the world.</p>
+      <div class="ctas">
+        <a class="btn primary" href="#contact">Start a project →</a>
+        <a class="btn" href="#services">See services</a>
+      </div>
+    </div>
+
+    <div class="panel" aria-label="Example launch report">
+      <div class="panel-head">
+        <span>launch-report / storefront</span>
+        <span class="mono">Pre-launch</span>
+      </div>
+      <div class="vitals">
+        <div class="vital"><span class="mono">LCP</span><b>1.8<small>s</small></b><div class="bar"><i style="width:72%"></i></div></div>
+        <div class="vital"><span class="mono">INP</span><b>120<small>ms</small></b><div class="bar"><i style="width:80%"></i></div></div>
+        <div class="vital"><span class="mono">CLS</span><b>0.02</b><div class="bar"><i style="width:92%"></i></div></div>
+      </div>
+      <ul class="checks">
+        <li><span>Shopify theme, mobile-first</span><span>passed</span></li>
+        <li><span>Schema, sitemap, meta tags</span><span>passed</span></li>
+        <li><span>GA4 + Search Console</span><span>connected</span></li>
+        <li class="wip"><span>301 redirects from old site</span><span>in review</span></li>
+      </ul>
+      <div class="panel-foot">Core Web Vitals targets every build is checked against before launch.</div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="stack">
+      <span class="mono">Built with</span>
+      <span>WordPress</span><span>Shopify</span><span>WooCommerce</span><span>Elementor</span><span>Figma</span><span>Search Console</span>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Services</span>
+        <h2>One partner for the whole site, start to launch.</h2>
+        <p>Pick a single service or bundle them. Every project ships with clean handover docs so your team can run it.</p>
+      </div>
+      <div class="services">
+        <div class="svc"><span class="mono">Design</span><h3>Web design</h3><p>Conversion-focused layouts in Figma, designed mobile-first and built around your offer.</p></div>
+        <div class="svc"><span class="mono">Build</span><h3>WordPress development</h3><p>Custom themes, Elementor or Gutenberg builds, speed tuning and secure hosting setup.</p></div>
+        <div class="svc"><span class="mono">Commerce</span><h3>Shopify development</h3><p>Store setup, theme customization, apps and migrations from WooCommerce or other platforms.</p></div>
+        <div class="svc"><span class="mono">Identity</span><h3>Branding</h3><p>Logo, color, type and a compact brand guide that keeps every page and post consistent.</p></div>
+        <div class="svc"><span class="mono">Growth</span><h3>SEO</h3><p>Technical audits, on-page fixes, schema and content plans built on real keyword data.</p></div>
+        <div class="svc cta"><span class="mono">Not sure?</span><h3>Start with an audit</h3><p>A short review of your current site with prioritized fixes.</p><a href="#contact">Request an audit →</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="mono">Process</span>
+        <h2>Four steps, clear dates, no surprises.</h2>
+      </div>
+      <div class="steps">
+        <div class="step"><span class="mono">Week 1</span><h3>Discovery</h3><p>Goals, audience, competitors and a fixed scope with a written quote.</p></div>
+        <div class="step"><span class="mono">Week 2–3</span><h3>Design</h3><p>Wireframes, then full designs in Figma. Two rounds of revisions included.</p></div>
+        <div class="step"><span class="mono">Week 3–5</span><h3>Build</h3><p>Development on a staging site you can review at any time.</p></div>
+        <div class="step"><span class="mono">Launch</span><h3>Launch &amp; handover</h3><p>Speed and SEO checks, go-live, training and 30 days of support.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap" id="contact">
+    <div class="final">
+      <div>
+        <h2>Have a project in mind?</h2>
+        <p>Tell me what you're building. I reply within one business day.</p>
+      </div>
+      <div class="ctas" style="align-items:center">
+        <a class="btn primary" href="mailto:hello@hasibulhaqueprottoy.com">Email me →</a>
+        <span class="email">hello@hasibulhaqueprottoy.com</span>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Hasibul Haque Prottoy</span>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/" rel="noopener">LinkedIn</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
